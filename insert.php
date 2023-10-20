@@ -1,56 +1,26 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>insert data into the table</h1>
+</head>
+<body>
+    <center>
+        <?php
+require "dbconnect.php";
+$title = $_REQUEST['title'];
+$author = $_REQUEST['author'];
+$genre = $_REQUEST['genre'];
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
+$sql = "INSERT INTO books (title, author, genre) VALUES ('$title','$author','$genre')";
 
-h1 {
-    text-align: center;
-    color: #333;
+if ($conn->query($sql) === true) {
+    echo "Record inserted successfully";
+} else {
+    echo "Error: " . $conn->error;
 }
-
-p {
-    margin-bottom: 10px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-}
-
-button[type="reset"] {
-    background-color: #ccc;
-    color: #333;
-}
+?>
+    </center>
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
